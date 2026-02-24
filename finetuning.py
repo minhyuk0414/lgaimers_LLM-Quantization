@@ -136,7 +136,7 @@ args = TrainingArguments(
     tf32=True,
     logging_steps=10,
     save_strategy="steps",
-    save_steps=1000,
+    save_steps=5000,
     report_to="none"
 )
 
@@ -165,5 +165,6 @@ for name, p in student_model.named_parameters():
 # ==========================================
 student_model.save_pretrained(OUT_DIR, save_compressed=True)
 tokenizer.save_pretrained(OUT_DIR)
+
 
 print(f"[INFO] 학습 및 저장 완료: {OUT_DIR}")
